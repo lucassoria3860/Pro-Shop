@@ -29,9 +29,9 @@ public class ProductoServicio implements IProductoServicio {
 		//Y la establecemos como categoria del producto
 		Categoria categoria = Optional.ofNullable(categoriaRepositorio.findByAtCategoria(request.getCategoria().getNombre()))
 										.orElseGet(() ->{
-												Categoria nuevaCategoria = new Categoria(request.getCategoria().getNombre());
-														return categoriaRepositorio.save(nuevaCategoria);
-											});
+											Categoria nuevaCategoria = new Categoria(request.getCategoria().getNombre());
+													return categoriaRepositorio.save(nuevaCategoria);
+										});
 		request.setCategoria(categoria);
 		return productoRepositorio.save(crearProducto(request, categoria));
 	}
