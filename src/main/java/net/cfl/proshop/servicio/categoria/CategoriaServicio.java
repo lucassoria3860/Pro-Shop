@@ -1,13 +1,13 @@
-package net.cfl.proshot.servicio.categoria;
+package net.cfl.proshop.servicio.categoria;
 
 import java.util.List;
 
 import org.springframework.stereotype.Service;
 
 import lombok.RequiredArgsConstructor;
-import net.cfl.proshot.excepciones.RecursoNoEncontradoEx;
-import net.cfl.proshot.modelo.Categoria;
-import net.cfl.proshot.repositorio.CategoriaRepositorio;
+import net.cfl.proshop.excepciones.RecursoNoEncontradoEx;
+import net.cfl.proshop.modelo.Categoria;
+import net.cfl.proshop.repositorio.CategoriaRepositorio;
 
 @Service
 @RequiredArgsConstructor

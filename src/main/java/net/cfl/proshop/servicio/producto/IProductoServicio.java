@@ -1,10 +1,10 @@
-package net.cfl.proshot.servicio.producto;
+package net.cfl.proshop.servicio.producto;
 
 import java.util.List;
 
-import net.cfl.proshot.modelo.Producto;
-import net.cfl.proshot.request.ActualizaProductoReq;
-import net.cfl.proshot.request.AgregaProductoReq;
+import net.cfl.proshop.modelo.Producto;
+import net.cfl.proshop.request.ActualizaProductoReq;
+import net.cfl.proshop.request.AgregaProductoReq;
 
 public interface IProductoServicio {
 	

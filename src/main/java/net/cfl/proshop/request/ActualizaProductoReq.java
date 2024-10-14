@@ -1,9 +1,9 @@
-package net.cfl.proshot.request;
+package net.cfl.proshop.request;
 
 import java.math.BigDecimal;
 
 import lombok.Data;
-import net.cfl.proshot.modelo.Categoria;
+import net.cfl.proshop.modelo.Categoria;
 
 @Data
 public class ActualizaProductoReq {

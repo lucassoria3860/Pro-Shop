@@ -1,8 +1,8 @@
-package net.cfl.proshot.servicio.categoria;
+package net.cfl.proshop.servicio.categoria;
 
 import java.util.List;
 
-import net.cfl.proshot.modelo.Categoria;
+import net.cfl.proshop.modelo.Categoria;
 
 public interface ICategoriaServicio {
 	Categoria listaCategoriaPorId(Long id);

@@ -1,8 +1,8 @@
-package net.cfl.proshot.repositorio;
+package net.cfl.proshop.repositorio;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import net.cfl.proshot.modelo.Categoria;
+import net.cfl.proshop.modelo.Categoria;
 
 public interface CategoriaRepositorio extends JpaRepository<Categoria, Long> {
 	Categoria findByAtCategoria(String nombre);

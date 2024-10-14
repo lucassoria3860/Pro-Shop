@@ -1,33 +1,37 @@
-package net.cfl.proshot.modelo;
+package net.cfl.proshop.modelo;
 
-import java.util.List;
+import java.sql.Blob;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.Lob;
+import jakarta.persistence.ManyToOne;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-
 
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-public class Categoria {
+public class Imagen {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	private String nombre;
+	private String archivoNombre;
+	private String achivoTipo;
 	
-	@OneToMany(mappedBy = "categoria")
-	private List<Producto> productos;
+	@Lob
+	private Blob imagen;
+	private String descargaUrl;
 	
-	public Categoria(String categoria) {
-		this.nombre = categoria;
-	}
+	@ManyToOne
+	@JoinColumn(name="producto_id")
+	private Producto producto;
+	
 }

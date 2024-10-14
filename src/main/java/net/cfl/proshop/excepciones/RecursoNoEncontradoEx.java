@@ -1,4 +1,4 @@
-package net.cfl.proshot.excepciones;
+package net.cfl.proshop.excepciones;
 
 public class RecursoNoEncontradoEx extends RuntimeException{
 	

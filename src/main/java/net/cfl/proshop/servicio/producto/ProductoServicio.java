@@ -1,4 +1,4 @@
-package net.cfl.proshot.servicio.producto;
+package net.cfl.proshop.servicio.producto;
 
 import java.util.List;
 import java.util.Optional;
@@ -6,13 +6,13 @@ import java.util.Optional;
 import org.springframework.stereotype.Service;
 
 import lombok.RequiredArgsConstructor;
-import net.cfl.proshot.excepciones.ProductoNoEncontradoEx;
-import net.cfl.proshot.modelo.Categoria;
-import net.cfl.proshot.modelo.Producto;
-import net.cfl.proshot.repositorio.CategoriaRepositorio;
-import net.cfl.proshot.repositorio.ProductoRepositorio;
-import net.cfl.proshot.request.ActualizaProductoReq;
-import net.cfl.proshot.request.AgregaProductoReq;
+import net.cfl.proshop.excepciones.ProductoNoEncontradoEx;
+import net.cfl.proshop.modelo.Categoria;
+import net.cfl.proshop.modelo.Producto;
+import net.cfl.proshop.repositorio.CategoriaRepositorio;
+import net.cfl.proshop.repositorio.ProductoRepositorio;
+import net.cfl.proshop.request.ActualizaProductoReq;
+import net.cfl.proshop.request.AgregaProductoReq;
 
 @Service
 @RequiredArgsConstructor

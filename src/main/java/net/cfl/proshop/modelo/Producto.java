@@ -1,4 +1,4 @@
-package net.cfl.proshot.modelo;
+package net.cfl.proshop.modelo;
 
 import java.math.BigDecimal;
 import java.util.List;
