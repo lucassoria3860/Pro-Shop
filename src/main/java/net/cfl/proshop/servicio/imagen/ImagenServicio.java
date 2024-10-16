@@ -16,7 +16,6 @@ import net.cfl.proshop.excepciones.RecursoNoEncontradoEx;
 import net.cfl.proshop.modelo.Imagen;
 import net.cfl.proshop.modelo.Producto;
 import net.cfl.proshop.repositorio.ImagenRepositorio;
-import net.cfl.proshop.repositorio.ProductoRepositorio;
 import net.cfl.proshop.servicio.producto.IProductoServicio;
 
 @Service
