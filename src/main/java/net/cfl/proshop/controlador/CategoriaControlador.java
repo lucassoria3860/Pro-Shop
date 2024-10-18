@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -69,18 +70,27 @@ public class CategoriaControlador {
 		}
 	}
 	
-	@DeleteMapping("/categoria/{categoriaId}/categoria")
+	@DeleteMapping("/categoria/{categoriaId}/Borra")
 	public ResponseEntity<ApiRespuesta> borraCategoria(@PathVariable Long categoriaId){
 		try {
-			Categoria laCategoria = categoriaServicio.borrarCategoriaPorId(categoriaId);
-			return ResponseEntity.ok(new ApiRespuesta("Encontrado! ", laCategoria));
+			categoriaServicio.borrarCategoriaPorId(categoriaId);
+			return ResponseEntity.ok(new ApiRespuesta("Borrada! ", null));
 		} catch (RecursoNoEncontradoEx e) {
 			return ResponseEntity.status(HttpStatus.NOT_FOUND)
 						.body(new ApiRespuesta(e.getLocalizedMessage(), null)) ;
 		}
 	}
 	
-	
+	@PutMapping("/categoria/{categoriaId}/Actualiza")
+	public ResponseEntity<ApiRespuesta> actualizaCategoria(@PathVariable Long categoriaId, @RequestBody Categoria categoria ){
+		try {
+			Categoria categoriaActualizada = categoriaServicio.actualizaCategoria(categoria, categoriaId);
+			return ResponseEntity.ok(new ApiRespuesta("Categora Actualizada! ", categoriaActualizada));
+		} catch (RecursoNoEncontradoEx e) {
+			return ResponseEntity.status(HttpStatus.NOT_FOUND)
+						.body(new ApiRespuesta(e.getLocalizedMessage(), null)) ;
+		}
+	}
 	
 	
 	

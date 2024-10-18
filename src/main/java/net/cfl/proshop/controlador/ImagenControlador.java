@@ -25,7 +25,6 @@ import net.cfl.proshop.dto.ImagenDto;
 import net.cfl.proshop.modelo.Imagen;
 import net.cfl.proshop.respuesta.ApiRespuesta;
 import net.cfl.proshop.servicio.imagen.IImagenServicio;
-import net.cfl.proshop.servicio.imagen.ImagenServicio;
 
 @RequiredArgsConstructor
 @RestController
