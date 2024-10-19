@@ -6,7 +6,7 @@ import java.util.Optional;
 import org.springframework.stereotype.Service;
 
 import lombok.RequiredArgsConstructor;
-import net.cfl.proshop.excepciones.ProductoNoEncontradoEx;
+import net.cfl.proshop.excepciones.RecursoNoEncontradoEx;
 import net.cfl.proshop.modelo.Categoria;
 import net.cfl.proshop.modelo.Producto;
 import net.cfl.proshop.repositorio.CategoriaRepositorio;
@@ -52,14 +52,14 @@ public class ProductoServicio implements IProductoServicio {
 	@Override
 	public Producto listarProductoPorId(Long id) {
 		return productoRepositorio.findById(id).
-					orElseThrow(() -> new ProductoNoEncontradoEx("Producto no encontrado"));
+					orElseThrow(() -> new RecursoNoEncontradoEx("Producto no encontrado"));
 	}
 
 	@Override
 	public void borrarProducto(Long id) {
 		productoRepositorio.findById(id).
 					ifPresentOrElse(productoRepositorio::delete, 
-								() -> new ProductoNoEncontradoEx("Producto no encontrado"));
+								() -> new RecursoNoEncontradoEx("Producto no encontrado"));
 		
 	}
 
@@ -67,7 +67,7 @@ public class ProductoServicio implements IProductoServicio {
 	public Producto actualizarProducto(ActualizaProductoReq request, Long productoId) {
 		return productoRepositorio.findById(productoId)
 				.map(productoExistente -> actualizaProductoExistente(productoExistente, request))
-				.map(productoRepositorio::save).orElseThrow(() -> new ProductoNoEncontradoEx("Producto no encontrado"));	
+				.map(productoRepositorio::save).orElseThrow(() -> new RecursoNoEncontradoEx("Producto no encontrado"));	
 							
 	}
 	
