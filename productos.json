@@ -1,0 +1,32 @@
+{
+	"nombre" : "TV",
+	"marca": "Samsung",
+	"descripcion": "Smart tv de 30 pulgadas",
+	"precio": "100000",
+	"stock": "25",
+	"categoria": "Electronica"
+}
+{
+	"nombre" : "TV",
+	"marca": "LG",
+	"descripcion": "Smart tv de 40 pulgadas",
+	"precio": "240000",
+	"stock": "25",
+	"categoria": "Electronica"
+}
+{
+	"nombre" : "Telefono",
+	"marca": "Samsung",
+	"descripcion": "34 gigas",
+	"precio": "104000",
+	"stock": "25",
+	"categoria": "Comunicaciones"
+}
+{
+	"nombre" : "TV",
+	"marca": "Motorola",
+	"descripcion": "64 gigas",
+	"precio": "124000",
+	"stock": "25",
+	"categoria": "Comunicaciones"
+}

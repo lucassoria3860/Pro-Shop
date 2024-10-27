@@ -141,7 +141,7 @@ public class ProductoControlador {
 	}
 	
 	@GetMapping("/producto/{productoCategoria}/todos/productos")
-	public ResponseEntity<ApiRespuesta> listarPorCategoria(String categoriaNombre){
+	public ResponseEntity<ApiRespuesta> listarPorCategoria(@PathVariable String categoriaNombre){
 		try {
 			List<Producto> productos = productoServicio.listarPorCategoria(categoriaNombre);
 			if(productos.isEmpty()) {
