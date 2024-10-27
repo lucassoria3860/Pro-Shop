@@ -2,6 +2,7 @@ package net.cfl.proshop.servicio.producto;
 
 import java.util.List;
 
+import net.cfl.proshop.dto.ProductoDto;
 import net.cfl.proshop.modelo.Producto;
 import net.cfl.proshop.request.ActualizaProductoReq;
 import net.cfl.proshop.request.AgregaProductoReq;
@@ -23,4 +24,8 @@ public interface IProductoServicio {
 	List<Producto> listarPorNombre(String nombre);
 	List<Producto> listarPorNombreYMarca(String nombre, String marca);
 	Long contarProductosPorNombreYMarca(String nombre, String Marca);
+	
+	//mapper
+	ProductoDto convertirAProductoDto(Producto producto);
+	List<ProductoDto> traeProductosConvertidos(List<Producto> productos);
 }
