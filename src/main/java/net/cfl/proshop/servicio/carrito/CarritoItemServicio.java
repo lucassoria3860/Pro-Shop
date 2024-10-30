@@ -30,7 +30,7 @@ public class CarritoItemServicio implements ICarritoItemServicio {
 		//4: si existe, establecer la cantidad con la cantidad requerida
 		//5: Si No existe, iniciar el ingreso del item
 		Carrito carrito = carritoServicio.traeCarrito(carritoId);
-		Producto producto =productoServicio.listarProductoPorId(productoId);
+		Producto producto = productoServicio.listarProductoPorId(productoId);
 		CarritoItem carritoItem = carrito.getCarritoItems()
 				.stream()
 				.filter(item -> item.getProducto().getId().equals(productoId))
@@ -44,25 +44,29 @@ public class CarritoItemServicio implements ICarritoItemServicio {
 			carritoItem.setCantidad(carritoItem.getCantidad() + cantidad);
 		}
 		carritoItem.setPrecioTot();
-		carritoItem.agregaItem(carritoItem);
+		carrito.agregaItem(carritoItem);
 		carritoItemRepositorio.save(carritoItem);
 		carritoRepositorio.save(carrito);
 	
 	}
 
 	@Override
-	public void quitaItemDelCarrito(Long id, Long productoId) {
-		Carrito carrito = 
+	public void quitaItemDelCarrito(Long carritoId, Long productoId) {
+		Carrito carrito = carritoServicio.traeCarrito(carritoId);
+		CarritoItem itemARemover = traeCarritoItem(carritoId, productoId);
 		carrito.quitarItem(itemARemover);
 		carritoRepositorio.save(carrito);
 		
 	}
-
+	
 	@Override
 	public void actualizaCantidadItem(Long carritoId, Long productoId, int cantidad) {
 		Carrito carrito = carritoServicio.traeCarrito(carritoId);
-		carrito.getCarritoItems().stream().filter(item -> item.getProducto().getId().equals(productoId))
-		.findFirst().ifPresent(item -> {
+		carrito.getCarritoItems()
+		.stream()
+		.filter(item -> item.getProducto().getId().equals(productoId))
+		.findFirst()
+		.ifPresent(item -> {
 			item.setCantidad(cantidad);
 			item.setPrecioUni(item.getProducto().getPrecio());
 			item.setPrecioTot();
@@ -75,12 +79,12 @@ public class CarritoItemServicio implements ICarritoItemServicio {
 	@Override
 	public CarritoItem traeCarritoItem(Long carritoId, Long  productoId) {
 		Carrito carrito = carritoServicio.traeCarrito(carritoId);
-		return carritoServicio.traeCarrito(carritoId);
-		CarritoItem itemARemover = carrito.getCarritoItems()
-				.stream()
-				.filter(item -> item.getProducto().getId().equals(productoId))
-				.findFirst()
-				.orElseThrow(() -> new RecursoNoEncontradoEx("Producto no encontrado"));
+		return carrito.getCarritoItems()				
+						.stream()
+						.filter(item -> item.getProducto().getId().equals(productoId))
+						.findFirst()
+						.orElseThrow(() -> new RecursoNoEncontradoEx("Producto no encontrado"));
+
 	}
 	
 	

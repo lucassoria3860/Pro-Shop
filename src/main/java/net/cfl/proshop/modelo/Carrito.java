@@ -45,13 +45,16 @@ public class Carrito {
 	private void actualizaCostoTotal() {
 		this.costoTotal = carritoItems
 				.stream()
-				.map(item -> { 
-					BigDecimal  precioUnitario = item.getPrecioUni();
-					if(precioUnitario == null) {
-					return bigDecimal.ZERO;
-					}
-					return precioUnitario.multiplay(BigDecimal.valueOf(item.getCantidad()));
-					}).reduce(BigDecimal.ZERO, BigDecimal :: add);
+				.map(item ->{
+						BigDecimal precioUnitario = item.getPrecioUni();
+						if(precioUnitario == null) {
+							return BigDecimal.ZERO;
+						}
+						
+						return precioUnitario.multiply(BigDecimal.valueOf(item.getCantidad()));
+						
+						}).reduce(BigDecimal.ZERO, BigDecimal :: add);
+				
 
 	}
 	
