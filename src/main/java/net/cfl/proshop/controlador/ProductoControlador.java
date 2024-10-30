@@ -86,7 +86,7 @@ public class ProductoControlador {
 	}
 	
 	@GetMapping("/por/marca-y-nombre")
-	public ResponseEntity<ApiRespuesta> listarPorMarcaYNombre(@RequestBody String marcaNombre, @RequestBody String productoNombre){
+	public ResponseEntity<ApiRespuesta> listarPorMarcaYNombre(@RequestParam String marcaNombre, @RequestParam String productoNombre){
 		try {
 			List<Producto> productos = productoServicio.listarPorNombreYMarca(productoNombre, marcaNombre);
 			if(productos.isEmpty()) {

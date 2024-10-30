@@ -48,12 +48,11 @@ public class Carrito {
 				.map(item ->{
 						BigDecimal precioUnitario = item.getPrecioUni();
 						if(precioUnitario == null) {
-							return BigDecimal.ZERO;
 						}
 						
 						return precioUnitario.multiply(BigDecimal.valueOf(item.getCantidad()));
 						
-						}).reduce(BigDecimal.ZERO, BigDecimal :: add);
+					}).reduce(BigDecimal.ZERO, BigDecimal :: add);
 				
 
 	}
