@@ -14,19 +14,24 @@ import lombok.RequiredArgsConstructor;
 import net.cfl.proshop.excepciones.RecursoNoEncontradoEx;
 import net.cfl.proshop.respuesta.ApiRespuesta;
 import net.cfl.proshop.servicio.carrito.ICarritoItemServicio;
+import net.cfl.proshop.servicio.carrito.ICarritoServicio;
 import net.cfl.proshop.servicio.producto.IProductoServicio;
 
 @RequiredArgsConstructor
 @RestController
-@RequestMapping("${api.prefix}/productos")
+@RequestMapping("${api.prefix}/items-carrito")
 public class CarritoItemControlador {
-	private ICarritoItemServicio carritoItemServicio;
+	private final ICarritoItemServicio carritoItemServicio;
+	private final ICarritoServicio carritoServicio;
 	
 	@PostMapping("/item/agrega")
-	public ResponseEntity<ApiRespuesta> agregaItemAlCarrito(@RequestParam Long carritoId, 
+	public ResponseEntity<ApiRespuesta> agregaItemAlCarrito(@RequestParam(required = false) Long carritoId, 
 															@RequestParam Long productoId, 
 															@RequestParam Integer cantidad){
 		try {
+			if(carritoId == null) {
+				carritoId = carritoServicio.inicializaCarrito();
+			}
 			carritoItemServicio.agregaItemAlCarrito(carritoId, productoId, cantidad);
 			return ResponseEntity.ok(new ApiRespuesta("Item agregado con exito", null));
 		} catch (RecursoNoEncontradoEx e) {

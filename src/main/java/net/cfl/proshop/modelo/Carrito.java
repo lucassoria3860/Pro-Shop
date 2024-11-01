@@ -1,6 +1,7 @@
 package net.cfl.proshop.modelo;
 
 import java.math.BigDecimal;
+import java.util.HashSet;
 import java.util.Set;
 
 import jakarta.persistence.CascadeType;
@@ -27,7 +28,7 @@ public class Carrito {
 	private BigDecimal costoTotal = BigDecimal.ZERO;
 	
 	@OneToMany(mappedBy = "carrito", cascade = CascadeType.ALL, orphanRemoval = true)
-	private Set<CarritoItem> carritoItems;
+	private Set<CarritoItem> carritoItems = new HashSet<>();
 	
 	public void agregaItem(CarritoItem item) {
 		this.carritoItems.add(item);
