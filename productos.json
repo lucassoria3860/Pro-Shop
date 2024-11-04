@@ -1,8 +1,8 @@
 {
 	"nombre" : "TV",
-	"marca": "Samsung",
+	"marca": "SAMSUNG",
 	"descripcion": "Smart tv de 30 pulgadas",
-	"precio": "100000",
+	"precio": "1000",
 	"stock": "25",
 	"categoria": "Electronica"
 }
@@ -10,23 +10,31 @@
 	"nombre" : "TV",
 	"marca": "LG",
 	"descripcion": "Smart tv de 40 pulgadas",
-	"precio": "240000",
+	"precio": "2400",
 	"stock": "25",
 	"categoria": "Electronica"
 }
 {
-	"nombre" : "Telefono",
-	"marca": "Samsung",
+	"nombre" : "TELEFONO",
+	"marca": "SAMSUNG",
 	"descripcion": "34 gigas",
-	"precio": "104000",
+	"precio": "1040",
 	"stock": "25",
 	"categoria": "Comunicaciones"
 }
 {
-	"nombre" : "TV",
-	"marca": "Motorola",
+	"nombre" : "TELEFONO",
+	"marca": "MOTOROLA",
 	"descripcion": "64 gigas",
-	"precio": "124000",
+	"precio": "1240",
 	"stock": "25",
 	"categoria": "Comunicaciones"
+}
+{
+	"nombre": "LAVARROPA",
+	"marca": "DREAM",
+	"descripcion": "15 KG",
+	"precio": "1240",
+	"stock": "25",
+	"categoria": "Electrodomesticos"
 }

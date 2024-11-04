@@ -35,9 +35,9 @@ public class ImagenControlador {
 	// REST API Imagenes
 	// api/v1/imagenes
 	@PostMapping("/upload")
-	public ResponseEntity<ApiRespuesta> guardaImagenes(@RequestBody List<MultipartFile> archivos, @RequestBody Long idPorducto){
+	public ResponseEntity<ApiRespuesta> guardaImagenes(@RequestBody List<MultipartFile> archivos, @RequestBody Long idProducto){
 		try {
-			List<ImagenDto> imagenesDto = imagenServicio.guardaImagenes(archivos, idPorducto);
+			List<ImagenDto> imagenesDto = imagenServicio.guardaImagenes(archivos, idProducto);
 			return ResponseEntity.ok(new ApiRespuesta("imagen subida correctamente", imagenesDto));
 		} catch (Exception e) {
 			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
