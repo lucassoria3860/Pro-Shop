@@ -37,7 +37,7 @@ public class Orden {
 	private Set<OrdenItem> ordenItems = new HashSet<>();
 	
 	@ManyToOne
-	@JoinColumn(name = "us")
+	@JoinColumn(name = "usuario_id")
 	private Usuario usuario;
 	
 	

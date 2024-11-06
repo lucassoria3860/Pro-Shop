@@ -28,7 +28,7 @@ public class ImagenServicio implements IImagenServicio {
 	@Override
 	public Imagen listaImagenPorId(Long id) {
 		return imagenRepositorio.findById(id)
-				.orElseThrow(() -> new RecursoNoEncontradoEx("no se encontro la imagen con id " + id));
+				.orElseThrow(() -> new RecursoNoEncontradoEx("No se encontro la imagen con id " + id));
 	}
 
 	@Override
