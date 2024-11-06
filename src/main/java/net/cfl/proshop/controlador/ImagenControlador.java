@@ -49,7 +49,7 @@ public class ImagenControlador {
 	public ResponseEntity<Resource> descargaImagen( @PathVariable Long imagenId) throws SQLException{
 			Imagen imagen = imagenServicio.listaImagenPorId(imagenId);
 			ByteArrayResource recurso = new ByteArrayResource(imagen.getImagen().getBytes(1, (int)imagen.getImagen().length()));
-			return ResponseEntity.ok().contentType(MediaType.parseMediaType(imagen.getAchivoTipo()))
+			return ResponseEntity.ok().contentType(MediaType.parseMediaType(imagen.getArchivoTipo()))
 					.header(HttpHeaders.CONTENT_DISPOSITION, "Attachment: filename=\"" + imagen.getArchivoNombre() + "\"")
 					.body(recurso);
 		}

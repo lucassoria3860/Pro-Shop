@@ -1,11 +1,13 @@
 package net.cfl.proshop.servicio.orden;
 
 import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
 
 import lombok.RequiredArgsConstructor;
+import net.cfl.proshop.enums.OrdenEstado;
 import net.cfl.proshop.excepciones.RecursoNoEncontradoEx;
 import net.cfl.proshop.modelo.Carrito;
 import net.cfl.proshop.modelo.Orden;
@@ -27,9 +29,15 @@ public class OrdenServicio implements IOrdenServicio {
 		return null;
 	}
 	
+	private Orden crearOrden(Carrito carrito) {
+		Orden orden = new Orden();
+		orden.setUsuario(null);
+		orden.setOrdenEstado(OrdenEstado.PENDIENTE);
+		orden.setOrdenFecha(LocalDate.now());
+		return orden;
+	}
 	
 	private List<OrdenItem> crearOrdenItems(Orden orden, Carrito carrito){
-		
 		return carrito.getCarritoItems().stream().map(carritoItem -> {
 			Producto producto = carritoItem.getProducto();
 			producto .setStock(producto.getStock() - carritoItem.getCantidad());

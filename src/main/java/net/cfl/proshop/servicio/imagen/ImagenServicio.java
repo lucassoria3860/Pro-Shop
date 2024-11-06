@@ -46,7 +46,7 @@ public class ImagenServicio implements IImagenServicio {
 			try {
 				Imagen imagen = new Imagen();
 				imagen.setArchivoNombre(archivo.getOriginalFilename());
-				imagen.setAchivoTipo(archivo.getContentType());
+				imagen.setArchivoTipo(archivo.getContentType());
 				imagen.setImagen(new SerialBlob(archivo.getBytes()));
 				imagen.setProducto(producto);
 				

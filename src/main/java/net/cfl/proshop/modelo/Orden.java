@@ -12,6 +12,8 @@ import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -34,7 +36,9 @@ public class Orden {
 	@OneToMany(mappedBy = "orden", cascade = CascadeType.ALL, orphanRemoval = true)
 	private Set<OrdenItem> ordenItems = new HashSet<>();
 	
-	
+	@ManyToOne
+	@JoinColumn(name = "us")
+	private Usuario usuario;
 	
 	
 }
