@@ -57,8 +57,10 @@ public class CarritoServicio implements ICarritoServicio {
 		return carritoRepositorio.save(nuevoCarrito).getId();
 	}
 	
-	
-	
+	@Override
+	public Carrito traeCarritoPorUsuarioId(Long usuarioId) {
+		return carritoRepositorio.findByUsuarioId(usuarioId);
+	}
 	
 	
 	
