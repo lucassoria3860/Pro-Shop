@@ -24,14 +24,14 @@ public class Imagen {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String archivoNombre;
-	private String achivoTipo;
+	private String archivoTipo;
 	
 	@Lob
 	private Blob imagen;
 	private String descargaUrl;
 	
 	@ManyToOne
-	@JoinColumn(name="producto_id")
+	@JoinColumn(name= "producto_id")
 	private Producto producto;
 	
 }

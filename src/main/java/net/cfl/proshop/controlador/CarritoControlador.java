@@ -15,12 +15,14 @@ import net.cfl.proshop.excepciones.RecursoNoEncontradoEx;
 import net.cfl.proshop.modelo.Carrito;
 import net.cfl.proshop.respuesta.ApiRespuesta;
 import net.cfl.proshop.servicio.carrito.ICarritoServicio;
+import net.cfl.proshop.servicio.producto.IProductoServicio;
 
 @RequiredArgsConstructor
 @RestController
 @RequestMapping("${api.prefix}/carritos")
 public class CarritoControlador {
 	private final ICarritoServicio carritoServicio;
+	private final IProductoServicio productoServicio; 
 	
 	@GetMapping("/{carritoId}/carritos")
 	public ResponseEntity<ApiRespuesta> traeCarrito(@PathVariable Long carritoId){
