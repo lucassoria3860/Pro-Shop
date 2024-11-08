@@ -44,7 +44,7 @@ public class OrdenServicio implements IOrdenServicio {
 	
 	private Orden crearOrden(Carrito carrito) {
 		Orden orden = new Orden();
-		orden.setUsuario(null);
+		orden.setUsuario(carrito.getUsuario());;
 		orden.setOrdenEstado(OrdenEstado.PENDIENTE);
 		orden.setOrdenFecha(LocalDate.now());
 		return orden;
