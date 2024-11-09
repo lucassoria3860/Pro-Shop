@@ -35,7 +35,7 @@ public class ImagenControlador {
 	// REST API Imagenes
 	// api/v1/imagenes
 	@PostMapping("/upload")
-	public ResponseEntity<ApiRespuesta> guardaImagenes(@RequestBody List<MultipartFile> archivos, @RequestBody Long idProducto){
+	public ResponseEntity<ApiRespuesta> guardaImagenes(@RequestParam List<MultipartFile> archivos, @RequestParam Long idProducto){
 		try {
 			List<ImagenDto> imagenesDto = imagenServicio.guardaImagenes(archivos, idProducto);
 			return ResponseEntity.ok(new ApiRespuesta("imagen subida correctamente", imagenesDto));
