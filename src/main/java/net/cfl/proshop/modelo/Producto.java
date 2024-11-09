@@ -39,9 +39,8 @@ public class Producto {
 	private List<Imagen> imagenes;
 	
 	public Producto(String nombre, String marca, String descripcion, BigDecimal precio, int stock, Categoria categoria) {
-		super();
 		this.nombre = nombre;
-		this.marca =marca;
+		this.marca = marca;
 		this.descripcion = descripcion;
 		this.precio = precio;
 		this.stock = stock;
