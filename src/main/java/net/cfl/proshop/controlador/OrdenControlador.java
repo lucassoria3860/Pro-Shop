@@ -1,5 +1,7 @@
 package net.cfl.proshop.controlador;
 
+import net.cfl.proshop.dto.OrdenDto;
+
 import java.util.List;
 
 import org.springframework.http.HttpStatus;
@@ -39,7 +41,7 @@ public class OrdenControlador {
 	@GetMapping("/{ordenId}/orden")
 	public ResponseEntity<ApiRespuesta> traeOrdenPorId(@PathVariable Long ordenId){
 		try {
-			Orden laOrden = ordenServicio.traeOrden(ordenId);
+			OrdenDto laOrden = ordenServicio.traeOrden(ordenId);
 			return ResponseEntity.ok(new ApiRespuesta("Exito! ", laOrden));
 		} catch (RecursoNoEncontradoEx e) {
 			return ResponseEntity.status(HttpStatus.NOT_FOUND).body(new ApiRespuesta("oops", e.getMessage()));
@@ -49,7 +51,7 @@ public class OrdenControlador {
 	@GetMapping("/{usuarioId}/orden")
 	public ResponseEntity<ApiRespuesta> traeOrdenUsuario(@PathVariable Long usuarioId){
 		try {
-			List<Orden> laOrden = ordenServicio.traeUsuarioOrdenes(usuarioId);
+			List<OrdenDto> laOrden = ordenServicio.traeUsuarioOrdenes(usuarioId);
 			return ResponseEntity.ok(new ApiRespuesta("Exito! ", laOrden));
 		} catch (RecursoNoEncontradoEx e) {
 			return ResponseEntity.status(HttpStatus.NOT_FOUND).body(new ApiRespuesta("oops", e.getMessage()));
