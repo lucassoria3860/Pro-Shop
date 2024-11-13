@@ -6,6 +6,6 @@ import net.cfl.proshop.modelo.Orden;
 
 public interface IOrdenServicio {
 	Orden realizarOrden(Long usuarioId);
-	Orden traeOrdem(Long ordenId);
+	Orden traeOrden(Long ordenId);
 	List<Orden> traeUsuarioOrdenes(Long usuarioId);
 }

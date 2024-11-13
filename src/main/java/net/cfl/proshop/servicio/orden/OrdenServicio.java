@@ -75,7 +75,7 @@ public class OrdenServicio implements IOrdenServicio {
 	
 
 	@Override
-	public Orden traeOrdem(Long ordenId) {
+	public Orden traeOrden(Long ordenId) {
 		return ordenRepositorio.findById(ordenId)
 					.orElseThrow(() -> new RecursoNoEncontradoEx("Orden no encontrada"));
 	}
