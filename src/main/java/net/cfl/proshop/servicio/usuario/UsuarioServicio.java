@@ -2,9 +2,11 @@ package net.cfl.proshop.servicio.usuario;
 
 import java.util.Optional;
 
+import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
 import lombok.RequiredArgsConstructor;
+import net.cfl.proshop.dto.UsuarioDto;
 import net.cfl.proshop.excepciones.RecursoNoEncontradoEx;
 import net.cfl.proshop.excepciones.UsuarioExisteEx;
 import net.cfl.proshop.modelo.Usuario;
@@ -17,6 +19,7 @@ import net.cfl.proshop.request.AgregaUsuarioReq;
 @RequiredArgsConstructor
 public class UsuarioServicio implements IUsuarioServicio {
 	private final UsuarioRepositorio usuarioRepositorio;
+	private final ModelMapper modelMapper;
 	
 	@Override
 	public Usuario traeUsuarioPorId(Long usuarioId) {
@@ -55,5 +58,12 @@ public class UsuarioServicio implements IUsuarioServicio {
 		});
 		
 	}
+	
+	@Override
+	public UsuarioDto convertirAUsuarioDto(Usuario usuario) {
+		return modelMapper.map(usuario, UsuarioDto.class);
+	}
+	
+	
 
 }
