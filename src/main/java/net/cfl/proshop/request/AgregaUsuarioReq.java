@@ -3,7 +3,7 @@ package net.cfl.proshop.request;
 import lombok.Data;
 
 @Data
-public class AgragaUsuarioReq {
+public class AgregaUsuarioReq {
 	private String usuarioNombre;
 	private String usuarioApellido;
 	private String email;

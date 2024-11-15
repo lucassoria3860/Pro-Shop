@@ -10,7 +10,8 @@ import net.cfl.proshop.excepciones.UsuarioExisteEx;
 import net.cfl.proshop.modelo.Usuario;
 import net.cfl.proshop.repositorio.UsuarioRepositorio;
 import net.cfl.proshop.request.ActualizaUsuarioReq;
-import net.cfl.proshop.request.AgragaUsuarioReq;
+import net.cfl.proshop.request.AgregaUsuarioReq;
+import net.cfl.proshop.request.AgregaUsuarioReq;
 
 @Service
 @RequiredArgsConstructor
@@ -24,7 +25,7 @@ public class UsuarioServicio implements IUsuarioServicio {
 	}
 
 	@Override
-	public Usuario creaUsuario(AgragaUsuarioReq request) {
+	public Usuario creaUsuario(AgregaUsuarioReq request) {
 		return Optional.of(request)
 				.filter(usuario -> !usuarioRepositorio.existsByEmail(request.getEmail()))
 				.map(req -> {
