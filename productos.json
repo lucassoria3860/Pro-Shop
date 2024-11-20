@@ -38,3 +38,27 @@
 	"stock": "25",
 	"categoria": "Electrodomesticos"
 }
+{
+	"nombre": "SECARROPA",
+	"marca": "DREAM",
+	"descripcion": "5 KG",
+	"precio": "1140",
+	"stock": "25",
+	"categoria": "Electrodomesticos"
+}
+{
+	"nombre": "NEETBOOK",
+	"marca": "HP",
+	"descripcion": "500 gigas",
+	"precio": "2300",
+	"stock": "25",
+	"categoria": "Electronica"
+}
+{
+	"nombre": "HELADERA",
+	"marca": "EFFICIENT",
+	"descripcion": "Heladera con freezer",
+	"precio": "2300",
+	"stock": "25",
+	"categoria": "Electrodomesticos"
+}
