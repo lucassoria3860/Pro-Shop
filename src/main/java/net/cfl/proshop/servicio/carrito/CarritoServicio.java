@@ -1,6 +1,7 @@
 package net.cfl.proshop.servicio.carrito;
 
 import java.math.BigDecimal;
+import java.util.Optional;
 import java.util.concurrent.atomic.AtomicLong;
 
 import org.springframework.stereotype.Service;
@@ -9,6 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 import lombok.RequiredArgsConstructor;
 import net.cfl.proshop.excepciones.RecursoNoEncontradoEx;
 import net.cfl.proshop.modelo.Carrito;
+import net.cfl.proshop.modelo.Usuario;
 import net.cfl.proshop.repositorio.CarritoItemRepositorio;
 import net.cfl.proshop.repositorio.CarritoRepositorio;
 
@@ -50,11 +52,13 @@ public class CarritoServicio implements ICarritoServicio {
 	 * la gestion de usuarios
 	 * */
 	@Override
-	public Long inicializaCarrito() {
-		Carrito nuevoCarrito = new Carrito();
-		Long nuevoCarritoId = generadorId.incrementAndGet();
-		nuevoCarrito.setId(nuevoCarritoId);
-		return carritoRepositorio.save(nuevoCarrito).getId();
+	public Carrito inicializaCarrito(Usuario usuario) {
+		return Optional.ofNullable(traeCarritoPorUsuarioId(usuario.getId()))
+				.orElseGet(() -> { 
+				Carrito carrito = new Carrito();
+				carrito.setUsuario(usuario);
+				return carritoRepositorio.save(carrito);
+				});
 	}
 	
 	@Override
