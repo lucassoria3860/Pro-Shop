@@ -8,6 +8,6 @@ import lombok.Data;
 public class CarritoItemDto {
 	private Long CarritoItemId;
 	private Integer cantidad;
-	private BigDecimal precioUnitario;
+	private BigDecimal precioUni;
 	private ProductoDto producto;
 }

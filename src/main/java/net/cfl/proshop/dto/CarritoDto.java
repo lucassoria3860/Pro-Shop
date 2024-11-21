@@ -9,5 +9,5 @@ import lombok.Data;
 public class CarritoDto {
 	private Long carritoId;
 	private BigDecimal costoTotal;
-	private Set<CarritoItemDto> carritoItem;
+	private Set<CarritoItemDto> carritoItems;
 }
